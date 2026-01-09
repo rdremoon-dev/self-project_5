@@ -1,0 +1,618 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body class="bg-white">
+  <header class="flex py-4 px-4 sm:px-10 bg-[#F5F7FA] min-h-[70px] tracking-wide relative z-50">
+    <div class="flex flex-wrap items-center justify-between gap-5 w-full">
+      <a href="javascript:void(0)" class="max-sm:hidden"><img src="img/header-logo.png" alt="logo"></a>
+      <a href="javascript:void(0)" class="hidden max-sm:block
+      "><img src="img/Icon.png" alt="" class="w-9"></a>
+
+
+      <div id="collapseMenu"
+        class="max-lg:hidden lg:block! max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50">
+        <button id="toggleClose"
+          class="lg:hidden fixed top-2 right-4 z-100 rounded-full bg-white w-9 h-9 flex items-center justify-center border border-gray-200 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-black" viewBox="0 0 320.591 320.591">
+            <path
+              d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
+              data-original="#000000"></path>
+            <path
+              d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
+              data-original="#000000"></path>
+          </svg>
+        </button>
+
+        <ul
+          class="lg:flex gap-x-4 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+          <li class="mb-6 hidden max-lg:block">
+            <a href="javascript:void(0)"><img src="img/logo.png" alt="logo"></a>
+          </li>
+          <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
+            <a href='javascript:void(0)'
+              class="hover:text-[#4CAF4F] text-[#4CAF4F] block font-medium text-[15px]">Home</a>
+          </li>
+          <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
+              class="hover:text-[#4CAF4F] text-gray-900 block font-medium text-[15px]">Team</a>
+          </li>
+          <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
+              class="hover:text-[#4CAF4F] text-gray-900 block font-medium text-[15px]">Feature</a>
+          </li>
+          <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
+              class="hover:text-[#4CAF4F] text-gray-900 block font-medium text-[15px]">Blog</a>
+          </li>
+          <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
+              class="hover:text-[#4CAF4F] text-gray-900 block font-medium text-[15px]">About</a>
+          </li>
+          <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
+              class="hover:text-[#4CAF4F] text-gray-900 block font-medium text-[15px]">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex max-lg:auto space-x-4">
+        <button
+          class="px-6 py-2.5 text-sm rounded-lg font-medium  cursor-pointer tracking-wide text-[#4CAF4F] capitalize text-center">
+          login
+        </button>
+        <button
+          class="px-6 py-2.5 text-sm rounded-lg font-medium  cursor-pointer tracking-wide text-white bg-[#4CAF4F] capitalize text-center hover:bg-gray-950 transition-colors duration-300">sign
+          up</button>
+
+        <button id="toggleOpen" class="lg:hidden cursor-pointer">
+          <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- Hero Section -->
+
+  <div class="px-4 sm:px-10 py-6 min-h-screen bg-[#F5F7FA]">
+    <div class="max-w-7xl max-lg:max-w-3xl mx-auto">
+      <div class="grid lg:grid-cols-2 items-center gap-x-12 gap-y-16">
+
+        <!-- left div -->
+        <div class="max-lg:text-center pt-8 ">
+          <h1
+            class="md:text-5xl text-4xl leading-relaxed! font-bold text-gray-900  font-sans max-xl:text-7xl max-sm:text-3xl max-sm:leading-relaxed">
+            Lessons and
+            insights</h1>
+          <span
+            class="md:text-5xl text-3xl max-lg:text-7xl max-sm:text-3xl font-bold font-sans text-[#4CAF4F] leading-normal">From
+            8 years</span>
+          <p
+            class="max-w-md text-base lg:text-xl md:text-base sm:text-base text-gray-600 leading-relaxed font-poppins mt-8 sm:mt-5">
+            Where to grow your business as a photographer: site or social media?</p>
+          <div class="mt-8 flex max-lg:justify-start max-md:justify-center max-sm:justify-center">
+            <a href="javascript:void(0)"
+              class="px-6 py-3 text-base font-semibold text-white border bg-[#4CAF4F] rounded-lg">Register</a>
+          </div>
+        </div>
+        <!-- Right Div -->
+        <div class="w-full aspect-12/9">
+          <img src="img/hero-banner.png" alt="hero-img"
+            class="w-full h-full object-contain rounded-lg mt-20 max-sm:mt-0">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Brand Section -->
+  <section class="bg-neutral-50 ">
+    <div class="py-8 lg:py-16 mx-auto max-w-7xl px-4">
+      <h2
+        class="mb-8 lg:mb-5 text-3xl font-extrabold tracking-tight leading-tight text-center text-gray-800 md:text-4xl max-sm:mb-4">
+        Our Clients</h2>
+      <p
+        class="text-xl text-center text-gray-600 font-poppins font-normal max-sm:text-base max-md:text-base max-lg:text-xl mb-16">
+        We have been working with some Fortune 500+ clients</p>
+
+
+      <div class="grid grid-cols-3 gap-8 sm:gap-12 md:grid-cols-4 sm:grid-cols-3 lg:grid-cols-7">
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-1.png" alt="">
+        </a>
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-2.png" alt="">
+        </a>
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-3.png" alt="">
+        </a>
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-4.png" alt="">
+        </a>
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-5.png" alt="">
+        </a>
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-6.png" alt="">
+        </a>
+        <a href="#" class="flex justify-center items-center">
+          <img src="img/brand-7.png" alt="">
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Feature Section -->
+  <section class="container w-full bg-white p-4 mt-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-xl mx-auto mb-16 text-center">
+        <h1 class="text-gray-900 text-3xl md:text-4xl font-bold text-center  mb-4 md:leading-[45px] ">Manage your entire
+          community in a single system</h1>
+        <p class="text-slate-600 text-sm leading-relaxed">Who is Nextcent suitable for?
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 max-sm:grid-cols-1 mx-auto gap-16 max-sm:gap-8">
+
+        <!-- featue list -->
+        <div
+          class="group text-center px-2 py-8 shadow-lg hover:shadow-lg hover:transition-shadow duration-300 hover:border-gray-500 hover:bg-blue-50 hover:rounded-lg">
+
+          <div class="icon-div w-12 h-12 flex items-center mx-auto bg-blue-50 mb-6 group-hover:bg-neutral-50">
+            <!-- icons -->
+            <img src="img/Icon (1).png" alt="" class="relative -left-3 -top-1 w-10  max-sm:w-12">
+          </div>
+          <!-- text -->
+          <h1 class="text-lg font-semibold text-gray-700 mb-3">
+            Membership Organisations
+          </h1>
+          <p class="text-base text-gray-700 leading-relaxed!">Our membership management software provides full
+            automation of membership renewals and payments</p>
+        </div>
+
+        <div
+          class="group text-center px-2 py-8 shadow-lg hover:shadow-lg hover:transition-shadow duration-300 hover:border-gray-500 hover:bg-blue-50 hover:rounded-lg">
+
+          <div class="icon-div w-12 h-12 flex items-center mx-auto bg-blue-50 mb-6 group-hover:bg-neutral-50">
+            <!-- icons -->
+            <img src="img/Icon (2).png" alt="" class="relative -left-3 -top-1 w-10  max-sm:w-12">
+          </div>
+          <!-- text -->
+          <h1 class="text-lg font-semibold text-gray-700 mb-3">
+            National Associations
+          </h1>
+          <p class="text-base text-gray-700 leading-relaxed!">Our membership management software provides full
+            automation of membership renewals and payments</p>
+        </div>
+        <div
+          class="group text-center px-2 py-8 shadow-lghover:shadow-lg hover:transition-shadow duration-300 hover:border-gray-500 hover:bg-blue-50 hover:rounded-lg">
+
+          <div class="icon-div w-12 h-12 flex items-center mx-auto bg-blue-50 mb-6 group-hover:bg-neutral-50">
+            <!-- icons -->
+            <img src="img/Icon (3).png" alt="" class="relative -left-3 -top-1 w-10 max-sm:w-12">
+          </div>
+          <!-- text -->
+          <h1 class="text-lg font-semibold text-gray-700 mb-3">
+            Clubs And Groups
+          </h1>
+          <p class="text-base text-gray-700 leading-relaxed!">Our membership management software provides full
+            automation of membership renewals and payments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unlock Section -->
+  <section class="container bg-white px-4">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-1 max-sm:grid-cols-1 lg:grid-cols-2">
+      <div>
+        <img src="img/unlock.png" alt="" class="w-full h-auto object-cover">
+      </div>
+      <div class="text-start flex flex-col items-center justify-center max-sm:text-center">
+        <h1
+          class="text-gray-900 text-3xl md:text-4xl font-bold text-left max-sm:text-center mb-4 md:leading-[50px] max-sm:leading-11! ">
+          The unseen of spending three years at Pixelgrade</h1>
+        <p class="text-gray-700 text-sm leading-relaxed text-justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est
+          varius
+          fringilla. Pellentesque placerat vestibulum lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar
+          sit amet
+          risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar
+          odio.
+        </p>
+        <button
+          class="px-8 py-3.5 text-sm rounded-lg font-medium  cursor-pointer tracking-wide text-white bg-[#4CAF4F] capitalize text-center hover:bg-gray-950 transition-colors duration-300 self-start mt-5 max-sm:self-center">Learn
+          more</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements section -->
+
+  <section class="w-full px-4  py-4 mt-8 mx-auto bg-[#F5F7FA]">
+    <div
+      class=" max-w-7xl mx-auto grid grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 max-lg:grid-cols-2 items-center ">
+      <div class="flex items-center justify-center">
+        <div class="text-left max-lg:text-left max-md:text-left max-sm:text-center">
+          <h1
+            class="text-gray-900 text-3xl md:text-4xl font-bold text-left max-sm:text-center  max-md:leading-relaxed! max-sm:leading-relaxed!">
+            Helping a local</h1> 
+            <span class="text-[#4CAF4F]  md:text-4xl font-bold text-left max-sm:text-center mb-2 max-md:leading-relaxed! leading-relaxed!
+            max-sm:leading-relaxed! max-sm:text-3xl
+            ">business reinvent itself</span>
+          <p class="text-gray-600 text-base font-medium font-sans mt-2">We reached here with our hard work and
+            dedication</p>
+        </div>
+      </div>
+
+      <div class="mt-10 items-center justify-end max-sm:justify-center flex">
+        <div
+          class="grid grid-cols-2 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:items-center gap-4 space-x-5 max-sm:space-x-0">
+          <div
+            class="flex items-center gap-4 px-4 py-4 border border-gray-200  shadow-lg transition-shadow duration-300 rounded-lg mb-5 bg-white">
+            <img src="img/vector-3.png" alt="icon" class="w-12 max-sm:w-10">
+            <div>
+              <h5 class="text-xl text-gray-900 font-black leading-relaxed">46,328</h5>
+              <p class="text-sm text-gray-600">Clubs</p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center gap-4 px-4 py-4 border border-gray-200  shadow-lg transition-shadow duration-300 rounded-lg mb-5 bg-white">
+            <img src="img/vector-2.png" alt="icon" class="w-12 max-sm:w-11">
+            <div>
+              <h5 class="text-xl text-gray-900 font-black leading-relaxed">2,245,341</h5>
+              <p class="text-sm text-gray-600">Members</p>
+            </div>
+          </div>
+          <div
+            class="flex items-center gap-4 px-4 py-4 border border-gray-200  shadow-lg transition-shadow duration-300 rounded-lg mb-5 bg-white">
+            <img src="img/vector.png" alt="icon" class="w-12 max-sm:w-10">
+            <div>
+              <h5 class="text-xl text-gray-900 font-black leading-relaxed">828,867</h5>
+              <p class="text-sm text-gray-600">Event Bookings</p>
+            </div>
+          </div>
+          <div
+            class="flex items-center gap-4 px-4 py-4 border border-gray-200  shadow-lg transition-shadow duration-300 rounded-lg mb-5 bg-white">
+            <img src="img/vector-4.png" alt="icon" class="w-12 max-sm:w-10">
+            <div>
+              <h5 class="text-xl text-gray-900 font-black leading-relaxed">1,926,436</h5>
+              <p class="text-sm text-gray-600">Payments</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- mobile login section -->
+
+  <section class="container bg-white px-4 mt-12 max-sm:mt-8">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-1 max-sm:grid-cols-1 lg:grid-cols-2">
+      <div class="mb-6">
+        <img src="img/mobile-login.png" alt="mobile-login image" class="w-full h-auto object-cover">
+      </div>
+      <div class="text-start flex flex-col items-center justify-center max-sm:text-center">
+        <h1
+          class="text-gray-900 text-3xl md:text-4xl font-bold text-left max-sm:text-center mb-4 md:leading-[50px] max-sm:leading-11! ">
+          How to design your site footer like we did</h1>
+        <p class="text-gray-700 text-sm leading-relaxed max-sm:text-justify">
+          Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc
+          varius arcu,
+          at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst.
+          Vivamus
+          vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna
+          tincidunt.
+          Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac,
+          hendrerit
+          venenatis libero. Donec consectetur faucibus ipsum id gravida.
+        </p>
+        <button
+          class="px-8 py-3.5 text-sm rounded-sm font-medium  cursor-pointer tracking-wide text-white bg-[#4CAF4F] capitalize text-center hover:bg-gray-950 transition-colors duration-300 self-start mt-5 max-sm:self-center">Learn
+          more</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- customer review -->
+
+  <section class="w-full max-auto px-4 max-sm:px-6 mt-14">
+    <div
+      class="grid grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-2 max-sm:grid-cols-1 max-xl:grid-cols-2 max-w-7xl mx-auto">
+      <div class="flex items-start justify-center">
+        <img src="img/image 9.png" alt="customer image">
+      </div>
+
+      <div class="items-start">
+        <div class="flex flex-col gap-5 max-sm:gap-2">
+          <p class="text-gray-600 text-base max-sm:text-justify">Maecenas dignissim justo eget nulla rutrum molestie.
+            Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper.
+            Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at
+            hendrerit
+            elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue
+            ultrices, quis
+            tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque
+            malesuada
+            enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero
+            condimentum id.
+            Curabitur id nibh id sem dignissim finibus ac sit amet magna.</p>
+          <a href="javascript:void(0)" class="text-2xl max-sm:text-xl text-[#4CAF4F] font-semibold font-sans">Tim
+            Smith</a>
+          <p class="text-sm text-gray-600 leading-relaxed! ">British Dragon Boat Racing Association</p>
+
+          <div class="grid grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-2 max-sm:grid-cols-1 items-center gap-5 max-sm:gap-0">
+
+            <div class="flex flex-wrap gap-6 items-center"> <!--image box-->
+              <img src="img/Logo (9).png" alt="logo image" class="w-8 object-contain h-auto">
+              <img src="img/brand-3.png" alt="" class="w-10 object-contain h-auto">
+              <img src="img/brand-4.png" alt="" class="w-10 object-contain h-auto">
+              <img src="img/brand-5.png" alt="" class="w-10 object-contain h-auto">
+              <img src="img/brand-6.png" alt="" class="w-10 object-contain h-auto">
+            </div> <!--image box End Here -->
+            <div class="max-sm:mt-4 items-center">
+              <a href="javascript:void(0)"
+                class="text-xl text-[#4CAF4F] font-semibold font-sans max-sm:text-base text-center">Meet all customers
+                <i
+                  class="fa-solid fa-arrow-right items-center ml-2 max-sm:text-base"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="container w-full px-4 py-4 max-sm:px-6 bg-white relative top-32 max-sm:top-10 max-md:top-20">
+<div class="max-w-7xl mx-auto">
+  <div class="flex flex-col gap-4 items-center justify-center mb-14 max-sm:mb-8">
+    <h1 class="text-gray-900 text-3xl md:text-4xl font-bold text-left max-sm:text-center  max-md:leading-relaxed! max-sm:leading-relaxed!">Caring is the new marketing</h1>
+    <p class="text-sm text-gray-600 leading-relaxed! text-center max-w-lg">The Nexcent blog is the best place to read about the latest membership insights, trends and more. See who's joining the
+    community, read about how our community are increasing their membership income and lot's more.​</p>
+  </div>
+<div class="grid grid-cols-3 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-5 max-sm:gap-0">
+
+<div class="mx-auto">
+  <div class="max-w-sm">
+    <img src="img/image 18.png" alt="" class="w-full h-auto object-cover">
+  </div>
+  <div class=" flex flex-col items-center justify-center bg-[#F5F7FA] max-w-xs max-sm:max-w-72 mx-auto px-6 py-8 rounded-lg relative -top-20 space-y-4">
+    <p class="text-base max-sm:text-base text-gray-600 leading-relaxed! text-center">Creating Streamlined Safeguarding Processes with OneRen</p>
+    <a href="javascript:void(0)" class="text-sm text-[#4CAF4F] font-semibold font-sans text-center capitalize ">read more
+      <i class="fa-solid fa-arrow-right items-center ml-1 max-sm:text-sm"></i> </a>
+  </div>
+</div>
+
+<div class="mx-auto">
+  <div class="max-w-sm">
+    <img src="img/image 19.png" alt="" class="w-full h-auto object-cover">
+  </div>
+  <div class=" flex flex-col items-center justify-center bg-[#F5F7FA] max-w-xs max-sm:max-w-72 mx-auto px-6 py-8 rounded-lg relative -top-20 space-y-4">
+    <p class="text-base max-sm:text-base text-gray-600 leading-relaxed! text-center">Creating Streamlined Safeguarding Processes with OneRen</p>
+    <a href="javascript:void(0)" class=" text-sm text-[#4CAF4F] font-semibold font-sans text-center capitalize ">read more
+      <i class="fa-solid fa-arrow-right items-center ml-1 max-sm:text-sm"></i> </a>
+  </div>
+</div>
+<div class="mx-auto">
+  <div class="max-w-sm">
+    <img src="img/image 20.png" alt="">
+  </div>
+  <div class=" flex flex-col items-center justify-center bg-[#F5F7FA] max-w-xs max-sm:max-w-72 mx-auto px-6 py-8 rounded-lg relative -top-20 space-y-4">
+    <p class="text-base max-sm:text-base text-gray-600 leading-relaxed! text-center">Creating Streamlined Safeguarding Processes with OneRen</p>
+    <a href="javascript:void(0)" class="text-sm text-[#4CAF4F] font-semibold font-sans text-center capitalize ">read more
+      <i class="fa-solid fa-arrow-right items-center ml-1 max-sm:text-sm"></i> </a>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="w-full bg-white px-4 py-4 max-sm:px-6 relative top-28 max-md:top-20 max-sm:top-10">
+<div class="max-w-7xl mx-auto items-center">
+<div class="flex flex-col items-center">
+  <h1 class="text-5xl text-gray-900 font-semibold font-sans max-sm:text-3xl max-md:text-5xl max-xl:text-5xl text-center leading-relaxed! ">Pellentesque suscipit fringilla libero eu.</h1>
+  <button
+    class="px-8 py-3.5 text-sm rounded-sm font-medium  cursor-pointer tracking-wide text-white bg-[#4CAF4F] capitalize text-center hover:bg-gray-950 transition-colors duration-300 self-center mt-5 max-sm:self-center">
+    Get a Demo</button>
+</div>
+</div>
+</section>
+
+<footer class="tracking-wide bg-[#F5F7FA] px-8 sm:px-12 pt-12 pb-6 relative top-50 max-sm:top-20">
+  <div class="grid min-[1200px]:grid-cols-3 gap-12 xl:gap-16">
+    <div class="min-[1200px]:max-w-sm max-w-lg w-full">
+      <a href='javascript:void(0)'>
+        <img src="img/header-logo.png" alt="logo" class="w-36" />
+      </a>
+      <div class="mt-6">
+        <p class="text-slate-600 leading-relaxed text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perferendis fugit, aliquid rerum quia praesentium.</p>
+      </div>
+      <ul class="mt-6 flex space-x-5">
+        <li>
+          <a href='javascript:void(0)'>
+          <i class="fa-brands fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a href='javascript:void(0)'>
+        <i class="fa-brands fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a href='javascript:void(0)'>
+          <i class="fa-brands fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href='javascript:void(0)'>
+          <i class="fa-brands fa-youtube"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="min-[1200px]:col-span-2 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="max-lg:min-w-[140px]">
+        <h4 class="text-slate-900 font-semibold text-base relative">Services</h4>
+
+        <ul class="mt-6 space-y-4">
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Web
+              Development</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Pricing</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Support</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Client
+              Portal</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Resources</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="max-lg:min-w-[140px]">
+        <h4 class="text-slate-900 font-semibold text-base relative">Platforms</h4>
+        <ul class="space-y-4 mt-6">
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Hubspot</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Integration
+              Services</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Marketing
+              Glossar</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">UIPath</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="max-lg:min-w-[140px]">
+        <h4 class="text-slate-900 font-semibold text-base relative">Company</h4>
+
+        <ul class="space-y-4 mt-6">
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">About us</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Careers</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Blog</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Portfolio</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Events</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="max-lg:min-w-[140px]">
+        <h4 class="text-slate-900 font-semibold text-base relative">Additional</h4>
+
+        <ul class="space-y-4 mt-6">
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">FAQ</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Partners</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Sitemap</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Contact</a>
+          </li>
+          <li>
+            <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">News</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="mt-10 mb-6 border-gray-300" />
+
+  <div class="flex flex-wrap max-md:flex-col gap-4">
+    <ul class="md:flex md:space-x-6 max-md:space-y-2">
+      <li>
+        <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Terms of
+          Service</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Privacy Policy</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Security</a>
+      </li>
+    </ul>
+
+    <p class="text-slate-600 text-sm md:ml-auto">Copyright © 2020 Nexcent ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    var toggleOpen = document.getElementById('toggleOpen');
+    var toggleClose = document.getElementById('toggleClose');
+    var collapseMenu = document.getElementById('collapseMenu');
+
+    function handleClick() {
+      if (collapseMenu.style.display === 'block') {
+        collapseMenu.style.display = 'none';
+      } else {
+        collapseMenu.style.display = 'block';
+      }
+    }
+
+    toggleOpen.addEventListener('click', handleClick);
+    toggleClose.addEventListener('click', handleClick);
+  </script>
+</body>
+
+</html>
